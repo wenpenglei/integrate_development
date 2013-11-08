@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @integrate_development.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @integrate_development.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @integrate_development.content %>
+</p>
+
+<h2>Comments</h2>
+<%= render @integrate_development.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<br/>
+
+<%= link_to 'Edit', edit_integrate_development_path(@integrate_development) %> |
+<%= link_to 'Back', integrate_developments_path %> |

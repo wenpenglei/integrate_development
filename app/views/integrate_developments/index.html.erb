@@ -1,0 +1,51 @@
+<h1>Listing integrate_developments</h1>
+
+
+<div id="tag_cloud">
+  <%= tag_cloud IntegrateDevelopment.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+
+
+<table>
+  <tr>
+    <th>Id</th>
+
+    <th>Name</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @integrate_developments.each do |integrate_development| %>
+    <h2><%= link_to integrate_development.name, integrate_development %></h2>
+    <tr>
+
+
+      <td><%= integrate_development.id %></td>
+      <td><%= integrate_development.name %></td>
+      <td><%= integrate_development.title %></td>
+
+
+
+      <td><%= integrate_development.content %></td>
+      <%= simple_format integrate_development.content %>
+      <% if integrate_development.tag_list.present? %>
+        <%#<p>Tags: <%= integrate_development.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')</p>%>%>
+      <% end %>
+
+
+      <td><%= link_to 'Show', integrate_development %></td>
+      <td><%= link_to 'Edit', edit_integrate_development_path(integrate_development) %></td>
+      <td><%= link_to 'Destroy', integrate_development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+<%= paginate @integrate_developments %>
+<br />
+
+<strong><%= link_to 'New Integrate development', new_integrate_development_path(@integrate_development) %></strong>

@@ -1,0 +1,19 @@
+<h1>New integrate_development</h1>
+<p id="notice"><%= notice %></p>
+
+<% @integrate_development.comments.each do |comment| %>
+  <p>
+  <b>Commenter:</b>
+  <%= comment.commenter %>
+  </p>
+
+  <p>
+  <b>Comment:</b>
+  <%= comment.body %>
+  </p>
+<% end %>
+
+<br />
+<%= render 'form' %>
+
+<%= link_to 'Back', integrate_developments_path %>
